@@ -2,3 +2,6 @@
 bin/
 obj/
 solutions/
+user/shaders/cache/
+*.dll
+*.exe
