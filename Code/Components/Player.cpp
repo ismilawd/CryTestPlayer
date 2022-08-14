@@ -47,13 +47,13 @@ void CPlayerComponent::ProcessEvent(const SEntityEvent& event)
 	{
 		PlayerUpdateMovement();
 
-		Ang3 rotationAngle = CCamera::CreateAnglesYPR(Matrix33(m_pEntity->GetWorldRotation()));
+		Ang3 rotationAngle = CCamera::CreateAnglesYPR(Matrix33(m_lookOrientation));
 		rotationAngle.x += m_mouseDeltaRotation.x * m_rotationSpeed;
 		rotationAngle.y += m_mouseDeltaRotation.y * m_rotationSpeed;
 		rotationAngle.z += 0;
 
-		const Quat finalRotation = Quat(CCamera::CreateOrientationYPR(rotationAngle));
-		m_pEntity->SetRotation(finalRotation);
+		m_lookOrientation = Quat(CCamera::CreateOrientationYPR(rotationAngle));
+		m_pEntity->SetRotation(m_lookOrientation);
 
 	}
 	break;
@@ -61,6 +61,13 @@ void CPlayerComponent::ProcessEvent(const SEntityEvent& event)
 	{
 		m_movementDelta = ZERO;
 		m_mouseDeltaRotation = ZERO;
+		m_lookOrientation = IDENTITY;
+
+
+		Matrix34 camDefaultMatrix;
+		camDefaultMatrix.SetTranslation(m_cameraDefaultPos);
+		camDefaultMatrix.SetRotation33(Matrix33(m_pEntity->GetWorldRotation()));
+		m_pCameraComponent->SetTransformMatrix(camDefaultMatrix);
 	}
 	break;
 	}

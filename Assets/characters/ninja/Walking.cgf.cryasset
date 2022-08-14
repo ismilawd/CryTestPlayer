@@ -1,0 +1,14 @@
+<AssetMetadata version="0" type="Mesh" guid="9eb808be-3867-0ff8-8c53-3b284c1b14e4" source="Walking.fbx">
+ <Files>
+  <File path="Walking.cgf"/>
+ </Files>
+ <Details>
+  <Detail name="materialCount">2</Detail>
+  <Detail name="triangleCount">24780</Detail>
+  <Detail name="vertexCount">13578</Detail>
+  <Detail name="16BitPrecision">false</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">./Walking.mtl</Path>
+ </Dependencies>
+</AssetMetadata>

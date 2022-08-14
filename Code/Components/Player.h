@@ -26,6 +26,7 @@ public:
 
 		desc.AddMember(&CPlayerComponent::m_movementSpeed, 'pms', "playermovespeed", "Player Movement Speed", "Sets the player movement speed",ZERO);
 		desc.AddMember(&CPlayerComponent::m_rotationSpeed, 'prs', "playerrotationspeed", "Player Rotation Speed", "Sets the player rotation speed", ZERO);
+		desc.AddMember(&CPlayerComponent::m_cameraDefaultPos, 'cdp', "cameradefaultposition", "Camera Default Position", "Sets the Camera Default Position", ZERO);
 	}
 private:
 	//camera
@@ -41,6 +42,9 @@ private:
 	Cry::DefaultComponents::CCharacterControllerComponent* m_pCharacterController;
 	Cry::DefaultComponents::CAdvancedAnimationComponent* m_pAdvancedAnimationComponent;
 
+	Quat m_lookOrientation; 
+
+	Vec3 m_cameraDefaultPos;
 	Vec2 m_movementDelta;
 	Vec2 m_mouseDeltaRotation;
 

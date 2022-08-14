@@ -1,0 +1,15 @@
+<AssetMetadata version="0" type="SkinnedMesh" guid="7774cbd2-a7af-a6a3-40bd-db5f57efbb1e" source="Walking.fbx">
+ <Files>
+  <File path="Walking_Ch24.skin"/>
+ </Files>
+ <Details>
+  <Detail name="materialCount">2</Detail>
+  <Detail name="triangleCount">24780</Detail>
+  <Detail name="vertexCount">13578</Detail>
+  <Detail name="16BitPrecision">false</Detail>
+  <Detail name="bonesCount">52</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">./Walking.mtl</Path>
+ </Dependencies>
+</AssetMetadata>

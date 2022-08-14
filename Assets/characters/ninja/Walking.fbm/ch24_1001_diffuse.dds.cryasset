@@ -1,0 +1,10 @@
+<AssetMetadata version="0" type="Texture" guid="1511a387-7634-335b-ec83-bec8ec9a2e8c" source="ch24_1001_diffuse.tif">
+ <Files>
+  <File path="ch24_1001_diffuse.dds"/>
+ </Files>
+ <Details>
+  <Detail name="width">4096</Detail>
+  <Detail name="height">4096</Detail>
+  <Detail name="mipCount">11</Detail>
+ </Details>
+</AssetMetadata>

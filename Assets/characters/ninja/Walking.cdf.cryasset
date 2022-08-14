@@ -1,0 +1,10 @@
+<AssetMetadata version="0" type="Character" guid="e3650c03-262c-446a-4b08-2449b49511f3">
+ <Files>
+  <File path="Walking.cdf"/>
+ </Files>
+ <Details />
+ <Dependencies>
+  <Path>characters/ninja/Walking.chr</Path>
+  <Path>characters/ninja/Walking_Ch24.skin</Path>
+ </Dependencies>
+</AssetMetadata>

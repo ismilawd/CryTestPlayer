@@ -1,0 +1,16 @@
+<AssetMetadata version="0" type="Material" guid="b1454679-ea7c-8b35-4542-f13386c27dae">
+ <Files>
+  <File path="Walking.mtl"/>
+ </Files>
+ <Details>
+  <Detail name="subMaterialCount">2</Detail>
+  <Detail name="textureCount">5</Detail>
+ </Details>
+ <Dependencies>
+  <Path usageCount="1">%ENGINE%/EngineAssets/Textures/white.dds</Path>
+  <Path usageCount="1">%ENGINE%/EngineAssets/Textures/white_ddn.dds</Path>
+  <Path usageCount="1">./Walking.fbm/Ch24_1001_Diffuse.dds</Path>
+  <Path usageCount="1">./Walking.fbm/Ch24_1001_Normal.dds</Path>
+  <Path usageCount="1">./Walking.fbm/Ch24_1001_Specular.dds</Path>
+ </Dependencies>
+</AssetMetadata>

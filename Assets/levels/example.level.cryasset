@@ -1,10 +1,12 @@
-<AssetMetadata version="0" type="Level" guid="6811d90d-6cbe-567e-2a78-7c127c666319" source="" timestamp="1660489525">
+<AssetMetadata version="0" type="Level" guid="6811d90d-6cbe-567e-2a78-7c127c666319" source="" timestamp="1660491108">
  <Files>
   <File path="example/example.level"/>
  </Files>
  <Dependencies>
   <Path>%editor%/objects/envcube.cgf</Path>
   <Path>%editor%/objects/envcube.mtl</Path>
+  <Path>%editor%/objects/mtlobjects.mtl</Path>
+  <Path>%editor%/objects/mtlsphere.cgf</Path>
   <Path>%engine%/engineassets/icons/averagememoryusage.dds</Path>
   <Path>%engine%/engineassets/icons/highmemoryusage.dds</Path>
   <Path>%engine%/engineassets/icons/livepreview.dds</Path>
@@ -19,6 +21,25 @@
   <Path>%engine%/engineassets/objects/primitive_sphere.cgf</Path>
   <Path>%engine%/engineassets/texturemsg/defaultnouvs.dds</Path>
   <Path>%engine%/engineassets/textures/skys/night/half_moon.dds</Path>
+  <Path>characters/ninja/ninja.cgf</Path>
+  <Path>characters/ninja/ninja.fbm/ch24_1001_diffuse.dds</Path>
+  <Path>characters/ninja/ninja.fbm/ch24_1001_normal.dds</Path>
+  <Path>characters/ninja/ninja.fbm/ch24_1001_specular.dds</Path>
+  <Path>characters/ninja/ninja.mtl</Path>
+  <Path>characters/ninja/walking.cdf</Path>
+  <Path>characters/ninja/walking.cdf</Path>
+  <Path>characters/ninja/walking.cgf</Path>
+  <Path>characters/ninja/walking.chr</Path>
+  <Path>characters/ninja/walking.fbm/ch24_1001_diffuse.dds</Path>
+  <Path>characters/ninja/walking.fbm/ch24_1001_normal.dds</Path>
+  <Path>characters/ninja/walking.fbm/ch24_1001_specular.dds</Path>
+  <Path>characters/ninja/walking.mtl</Path>
+  <Path>characters/ninja/walking_ch24.skin</Path>
+  <Path>characters/ninja/walking_mixamo_com.caf</Path>
+  <Path>characters/ninja/walking_take_001.caf</Path>
+  <Path>editor/resourcecache/characters/ninja/ninja.fbm/ch24_1001_diffuse.dds</Path>
+  <Path>editor/resourcecache/characters/ninja/ninja.fbm/ch24_1001_normal.dds</Path>
+  <Path>editor/resourcecache/characters/ninja/ninja.fbm/ch24_1001_specular.dds</Path>
   <Path>engineassets/materials/water/ocean_default.mtl</Path>
   <Path>engineassets/texturemsg/defaultsolids.mtl</Path>
   <Path>engineassets/textures/grey.dds</Path>
