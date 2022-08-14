@@ -32,6 +32,8 @@ private:
 	//Character Controller
 	//Advanced Animation
 
+	void InitInputs();
+
 	Cry::DefaultComponents::CCameraComponent* m_pCameraComponent;
 	Cry::DefaultComponents::CInputComponent* m_pInputComponent;
 	Cry::DefaultComponents::CCharacterControllerComponent* m_pCharacterController;

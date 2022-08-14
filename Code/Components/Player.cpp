@@ -26,7 +26,41 @@ void CPlayerComponent::Initialize()
 	m_pInputComponent = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CInputComponent>();
 	m_pCharacterController = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CCharacterControllerComponent>();
 	m_pAdvancedAnimationComponent = m_pEntity->GetOrCreateComponent<Cry::DefaultComponents::CAdvancedAnimationComponent>();
+}
 
+Cry::Entity::EventFlags CPlayerComponent::GetEventMask() const
+{
+	return Cry::Entity::EEvent::GameplayStarted| Cry::Entity::EEvent::Update | Cry::Entity::EEvent::Reset;
+}
+
+void CPlayerComponent::ProcessEvent(const SEntityEvent& event)
+{
+	switch (event.event)
+	{
+	case Cry::Entity::EEvent::GameplayStarted:
+	{
+		m_movementDelta = ZERO;
+		InitInputs();
+	}
+	break;
+	case Cry::Entity::EEvent::Update:
+	{
+		//m_pEntity->SetPos(m_pEntity->GetWorldPos() + Vec3(m_movementDelta.x, m_movementDelta.y, 0));
+		Vec3 velocity = Vec3(m_movementDelta.x, m_movementDelta.y, 0);
+		velocity.normalize();
+		m_pCharacterController->SetVelocity(m_pEntity->GetWorldRotation() * velocity * m_movementSpeed);
+	}
+	break;
+	case Cry::Entity::EEvent::Reset:
+	{
+		m_movementDelta = ZERO;
+	}
+	break;
+	}
+}
+
+void CPlayerComponent::InitInputs()
+{
 	m_pInputComponent->RegisterAction("player", "moveforward", [this](int activationMode, float value) {m_movementDelta.y = value; });
 	m_pInputComponent->BindAction("player", "moveforward", eAID_KeyboardMouse, eKI_W);
 
@@ -38,24 +72,4 @@ void CPlayerComponent::Initialize()
 
 	m_pInputComponent->RegisterAction("player", "moveleft", [this](int activationMode, float value) {m_movementDelta.x = -value; });
 	m_pInputComponent->BindAction("player", "moveleft", eAID_KeyboardMouse, eKI_A);
-}
-
-Cry::Entity::EventFlags CPlayerComponent::GetEventMask() const
-{
-	return Cry::Entity::EEvent::Update;
-}
-
-void CPlayerComponent::ProcessEvent(const SEntityEvent& event)
-{
-	switch (event.event)
-	{
-	case Cry::Entity::EEvent::Update:
-	{
-		//m_pEntity->SetPos(m_pEntity->GetWorldPos() + Vec3(m_movementDelta.x, m_movementDelta.y, 0));
-		Vec3 velocity = Vec3(m_movementDelta.x, m_movementDelta.y, 0);
-		velocity.normalize();
-		m_pCharacterController->SetVelocity(m_pEntity->GetWorldRotation() * velocity * m_movementSpeed);
-	}
-	break;
-	}
 }
