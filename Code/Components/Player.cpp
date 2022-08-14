@@ -51,7 +51,10 @@ void CPlayerComponent::ProcessEvent(const SEntityEvent& event)
 	{
 	case Cry::Entity::EEvent::Update:
 	{
-		m_pEntity->SetPos(m_pEntity->GetWorldPos() + Vec3(m_movementDelta.x, m_movementDelta.y, 0));
+		//m_pEntity->SetPos(m_pEntity->GetWorldPos() + Vec3(m_movementDelta.x, m_movementDelta.y, 0));
+		Vec3 velocity = Vec3(m_movementDelta.x, m_movementDelta.y, 0);
+		velocity.normalize();
+		m_pCharacterController->SetVelocity(m_pEntity->GetWorldRotation() * velocity * m_movementSpeed);
 	}
 	break;
 	}

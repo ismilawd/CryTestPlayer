@@ -23,6 +23,8 @@ public:
 	static void ReflectType(Schematyc::CTypeDesc<CPlayerComponent>& desc)
 	{
 		desc.SetGUID("{63F4C0C6-32AF-4ACB-8FB0-57D45DD14725}"_cry_guid);
+
+		desc.AddMember(&CPlayerComponent::m_movementSpeed, 'pms', "playermovespeed", "Player Movement Speed", "Sets the player movement speed",ZERO);
 	}
 private:
 	//camera
@@ -36,4 +38,5 @@ private:
 	Cry::DefaultComponents::CAdvancedAnimationComponent* m_pAdvancedAnimationComponent;
 
 	Vec2 m_movementDelta;
+	float m_movementSpeed;
 };
