@@ -5,3 +5,4 @@ solutions/
 user/shaders/cache/
 *.dll
 *.exe
+*.log
