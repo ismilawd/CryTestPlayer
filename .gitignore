@@ -6,3 +6,4 @@ user/shaders/cache/
 *.dll
 *.exe
 *.log
+*.bak*
