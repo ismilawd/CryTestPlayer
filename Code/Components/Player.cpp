@@ -38,6 +38,21 @@ void CPlayerComponent::Initialize()
 
 	m_pInputComponent->RegisterAction("player", "moveleft", [this](int activationMode, float value) {m_movementDelta.x = -value; });
 	m_pInputComponent->BindAction("player", "moveleft", eAID_KeyboardMouse, eKI_A);
+}
 
-	m_pEntity->SetPos(m_pEntity->GetWorldPos() + Vec3(m_movementDelta.x, m_movementDelta.y, 0));
+Cry::Entity::EventFlags CPlayerComponent::GetEventMask() const
+{
+	return Cry::Entity::EEvent::Update;
+}
+
+void CPlayerComponent::ProcessEvent(const SEntityEvent& event)
+{
+	switch (event.event)
+	{
+	case Cry::Entity::EEvent::Update:
+	{
+		m_pEntity->SetPos(m_pEntity->GetWorldPos() + Vec3(m_movementDelta.x, m_movementDelta.y, 0));
+	}
+	break;
+	}
 }

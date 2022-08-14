@@ -5285,6 +5285,18 @@
 			"dependencies": [ ]
 		},
 		{
+			"type": "Environment",
+			"guid": "dfcaf468-1324-7193-83e4-70cbd98f9d35",
+			"name": "example",
+			"timestamp": 1660475910,
+			"files": [ "libs/environmentpresets/example.env" ],
+			"workFiles": [ ],
+			"source": "",
+			"metadata": "libs/environmentpresets/example.env.cryasset",
+			"details": [ ],
+			"dependencies": [ ]
+		},
+		{
 			"type": "Xml",
 			"guid": "cb76a549-5754-013c-b706-c2f39ac64d5a",
 			"name": "example",
