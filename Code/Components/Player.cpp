@@ -45,15 +45,22 @@ void CPlayerComponent::ProcessEvent(const SEntityEvent& event)
 	break;
 	case Cry::Entity::EEvent::Update:
 	{
-		//m_pEntity->SetPos(m_pEntity->GetWorldPos() + Vec3(m_movementDelta.x, m_movementDelta.y, 0));
-		Vec3 velocity = Vec3(m_movementDelta.x, m_movementDelta.y, 0);
-		velocity.normalize();
-		m_pCharacterController->SetVelocity(m_pEntity->GetWorldRotation() * velocity * m_movementSpeed);
+		PlayerUpdateMovement();
+
+		Ang3 rotationAngle = CCamera::CreateAnglesYPR(Matrix33(m_pEntity->GetWorldRotation()));
+		rotationAngle.x += m_mouseDeltaRotation.x * m_rotationSpeed;
+		rotationAngle.y += m_mouseDeltaRotation.y * m_rotationSpeed;
+		rotationAngle.z += 0;
+
+		const Quat finalRotation = Quat(CCamera::CreateOrientationYPR(rotationAngle));
+		m_pEntity->SetRotation(finalRotation);
+
 	}
 	break;
 	case Cry::Entity::EEvent::Reset:
 	{
 		m_movementDelta = ZERO;
+		m_mouseDeltaRotation = ZERO;
 	}
 	break;
 	}
@@ -72,4 +79,17 @@ void CPlayerComponent::InitInputs()
 
 	m_pInputComponent->RegisterAction("player", "moveleft", [this](int activationMode, float value) {m_movementDelta.x = -value; });
 	m_pInputComponent->BindAction("player", "moveleft", eAID_KeyboardMouse, eKI_A);
+
+	m_pInputComponent->RegisterAction("player", "yaw", [this](int activationMode, float value) {m_mouseDeltaRotation.y = -value; });
+	m_pInputComponent->BindAction("player", "yaw", eAID_KeyboardMouse, eKI_MouseY);
+
+	m_pInputComponent->RegisterAction("player", "pitch", [this](int activationMode, float value) {m_mouseDeltaRotation.x = -value; });
+	m_pInputComponent->BindAction("player", "pitch", eAID_KeyboardMouse, eKI_MouseX);
+}
+
+void CPlayerComponent::PlayerUpdateMovement()
+{
+	Vec3 velocity = Vec3(m_movementDelta.x, m_movementDelta.y, 0);
+	velocity.normalize();
+	m_pCharacterController->SetVelocity(m_pEntity->GetWorldRotation() * velocity * m_movementSpeed);
 }

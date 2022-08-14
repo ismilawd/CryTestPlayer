@@ -25,6 +25,7 @@ public:
 		desc.SetGUID("{63F4C0C6-32AF-4ACB-8FB0-57D45DD14725}"_cry_guid);
 
 		desc.AddMember(&CPlayerComponent::m_movementSpeed, 'pms', "playermovespeed", "Player Movement Speed", "Sets the player movement speed",ZERO);
+		desc.AddMember(&CPlayerComponent::m_rotationSpeed, 'prs', "playerrotationspeed", "Player Rotation Speed", "Sets the player rotation speed", ZERO);
 	}
 private:
 	//camera
@@ -33,6 +34,7 @@ private:
 	//Advanced Animation
 
 	void InitInputs();
+	void PlayerUpdateMovement();
 
 	Cry::DefaultComponents::CCameraComponent* m_pCameraComponent;
 	Cry::DefaultComponents::CInputComponent* m_pInputComponent;
@@ -40,5 +42,8 @@ private:
 	Cry::DefaultComponents::CAdvancedAnimationComponent* m_pAdvancedAnimationComponent;
 
 	Vec2 m_movementDelta;
+	Vec2 m_mouseDeltaRotation;
+
 	float m_movementSpeed;
+	float m_rotationSpeed;
 };
